@@ -1,77 +1,91 @@
-Je construis un petit projet IA en Python : un mini Akinator hybride.
+Je construis un projet Python : un mini Akinator hybride avec moteur logique + LLM.
 
 Contexte :
-- Je suis développeur expérimenté, plutôt orienté web / JS.
-- J’ai déjà fait un peu de Python il y a longtemps, mais je reprends.
-- Je suis sur Windows avec WSL.
-- Je veux faire un vrai petit projet IA en utilisant un LLM, mais je ne veux pas d’un projet 100% piloté par le LLM.
-- L’idée du projet est :
-  - avoir une fiche structurée par personnage
-  - faire un moteur qui garde une liste de candidats
-  - poser des questions pour éliminer des candidats
-  - utiliser un LLM local surtout pour reformuler les questions et interpréter les réponses libres
-  - garder la logique principale dans le code Python
+- Dev expérimenté (plutôt JS / web)
+- Reprise de Python après longtemps
+- Environnement : Windows + WSL
+- Je veux comprendre, pas copier-coller
 
-Stack visée :
-- Python moderne
+Objectif du projet :
+- dataset de personnages (JSON)
+- moteur logique qui :
+  - garde des candidats
+  - choisit la meilleure question (split optimal)
+  - filtre selon réponse (yes/no/unknown)
+- LLM local (Ollama) pour :
+  - reformuler les questions
+  - interpréter les réponses utilisateur
+- CLI jouable
+
+Stack :
+- Python 3.12+
 - uv
-- pyproject.toml
 - ruff
 - pytest
 - pydantic
-- typer
-- ollama
+- typer (plus tard)
+- ollama (plus tard)
 
 État actuel du projet :
-- environnement WSL prêt
-- projet initialisé
-- pyproject.toml déjà configuré
-- le reste n’est pas encore fait
+
+✅ Setup
+- projet initialisé avec uv
+- pyproject.toml configuré
+- venv OK
+
+✅ Tooling
+- ruff OK
+- mypy OK
+- pytest OK
+- format + lint auto dans VS Code
+
+✅ Structure
+- src/ layout en place
+- data/characters/
+- tests/
+
+✅ Models (Pydantic)
+- Character
+- AnswerValue (StrEnum)
+- ParsedAnswer
+
+✅ Dataset
+- 10 personnages Harry Potter en JSON
+
+✅ Loader
+- load_characters(Path) → list[Character]
+
+✅ Engine (terminé)
+- Question (dataclass)
+- GameState (dataclass)
+- QUESTION_BANK
+- pick_best_question (algo de split)
+- apply_answer (filtrage immuable)
+- should_guess
+
+⏳ En cours
+- écrire les tests du moteur (pytest)
+
+🔜 Prochaines étapes
+1. tests/test_engine.py
+2. valider moteur
+3. ajouter couche LLM (ollama)
+4. CLI (typer)
+5. boucle de jeu complète
 
 Ce que j’attends de toi :
-- Agis comme un professeur / tuteur technique.
-- Procède étape par étape.
-- Ne me donne pas toutes les réponses d’un coup.
-- Ne me donne pas un projet entier à copier-coller.
-- Explique-moi ce qu’on fait, pourquoi on le fait, comment le vérifier.
-- Donne-moi plutôt :
-  - des objectifs d’étape
-  - des consignes
-  - des indices
-  - des petites explications
-  - des retours sur ce que j’écris
-- Tu peux me proposer de petites commandes ou de petits extraits de code si c’est nécessaire, mais pas la solution complète sauf si je le demande explicitement.
-- Réponds de façon concise, technique et précise.
-- Quand c’est utile, aide-moi aussi à comprendre les conventions Python modernes :
-  - environnement
-  - pyproject.toml
-  - uv
-  - structure de projet
-  - typing
-  - tests
-  - linting / formatting
-  - intégration VS Code
+- agir comme un prof / tuteur technique
+- une étape à la fois
+- pas de solution complète d’un coup
+- m’expliquer quoi faire, pourquoi, comment vérifier
+- me donner des indices + corrections
+- être concis, technique, précis
 
-Méthode de travail :
-- on fait une seule étape à la fois
-- tu me laisses faire
-- je te montre mes commandes, erreurs ou fichiers
-- tu me guides et tu réponds à mes questions
-- si je pars dans une mauvaise direction, recadre-moi
-- n’avance pas tout seul sur plusieurs étapes d’un coup
+Méthode :
+- je code
+- je te montre
+- tu corriges / guides
+- tu n’avances pas sans moi
 
-Important :
-- Je veux comprendre, pas juste copier-coller.
-- Je veux un accompagnement pédagogique.
-
-Objectif final :
-- projet proprement initialisé
-- dataset de personnages
-- moteur logique testable
-- intégration LLM locale
-- CLI jouable
-
-Commence à partir de l’état actuel :
-- pyproject.toml est déjà configuré
-- prochaine étape : configurer le lint/format en CLI puis dans VS Code avec auto-format / auto-fix à la sauvegarde
-- fais-moi avancer pas à pas sans me donner toute la solution d’un coup
+Commence à l’étape actuelle :
+👉 écrire les tests pour le moteur (apply_answer, pick_best_question, should_guess)
