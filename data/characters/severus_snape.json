@@ -1,0 +1,10 @@
+{
+  "name": "Severus Snape",
+  "universe": "Harry Potter",
+  "is_fictional": true,
+  "is_human": true,
+  "has_powers": true,
+  "wears_mask": false,
+  "is_villain": false,
+  "gender": "male"
+}
