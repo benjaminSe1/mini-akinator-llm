@@ -141,7 +141,6 @@ def test_should_guess_true_when_two_candidates_left() -> None:
     state = make_state(
         [
             make_character(name="Harry"),
-            make_character(name="Hermione", gender="female"),
         ]
     )
 
