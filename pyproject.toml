@@ -33,3 +33,13 @@ python_version = "3.12"
 strict = true
 pretty = true
 show_error_codes = true
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
