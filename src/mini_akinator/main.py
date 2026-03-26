@@ -7,7 +7,7 @@ from mini_akinator.engine import (
     pick_best_question,
     should_guess,
 )
-from mini_akinator.llm import BasicLLM
+from mini_akinator.llm import OllamaLLM
 from mini_akinator.repository import load_characters
 
 
@@ -16,7 +16,7 @@ def play_game() -> None:
         candidates=load_characters(Path("data/characters")),
         asked_keys=set(),
     )
-    llm = BasicLLM()
+    llm = OllamaLLM()
 
     while not should_guess(state=game_state):
         question = pick_best_question(state=game_state)

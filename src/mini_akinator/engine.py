@@ -48,10 +48,22 @@ QUESTION_BANK = [
         expected_value=True,
     ),
     Question(key="death_eater", label="Est-ce un Mangemort ?", expected_value=True),
-    Question(key="house", label="Est-ce à Gryffondor ?", expected_value="gryffindor"),
-    Question(key="house", label="Est-ce à Serpentard ?", expected_value="slytherin"),
-    Question(key="house", label="Est-ce à Serdaigle ?", expected_value="ravenclaw"),
-    Question(key="house", label="Est-ce à Poufsouffle ?", expected_value="hufflepuff"),
+    Question(
+        key="house",
+        label="Est-ce que le peronnage est à Gryffondor ?",
+        expected_value="gryffindor",
+    ),
+    Question(
+        key="house", label="Est-ce que le peronnage est à Serpentard ?", expected_value="slytherin"
+    ),
+    Question(
+        key="house", label="Est-ce que le peronnage est à Serdaigle ?", expected_value="ravenclaw"
+    ),
+    Question(
+        key="house",
+        label="Est-ce que le peronnage est à Poufsouffle ?",
+        expected_value="hufflepuff",
+    ),
     Question(key="blood_status", label="Est-ce un sang-pur ?", expected_value="pure-blood"),
     Question(key="blood_status", label="Est-ce un sang-mêlé ?", expected_value="half-blood"),
     Question(key="blood_status", label="Est-ce un né-moldu ?", expected_value="muggle-born"),
